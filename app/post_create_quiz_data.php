@@ -14,7 +14,6 @@
     );
 
     $result = executeQuery($dbConnection, $createQuizQuery);
-    echo var_dump($result);
 
     $lastQuizId = executeQuery($dbConnection, "SELECT id FROM quiz ORDER BY id DESC LIMIT 1")->fetch_assoc()["id"];
 
@@ -43,18 +42,27 @@
             $currentQuestion['correct_option'],
             $currentQuestion['quiz_id']
         );
-
-        echo $createQuestionQuery;
-
         $result = executeQuery($dbConnection, $createQuestionQuery);
-        echo var_dump($result);
-
     }
-
-    $str = '\[
-        \left( \sum_{k=1}^n a_k b_k \right)^{\!\!2} \leq
-         \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-        \]';
-
-    echo $str;
 ?>
+
+<style>
+    .button {
+        outline: none;
+        margin: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 150px;
+        height: 40px;
+        color: #fff;
+        background-color: red;
+        align-self:center;
+    }
+</style>
+
+<div style="display:flex; flex-direction: column; justify-content: center">
+    <p style="font-size:25px; text-align: center">Quiz-ul a fost creat cu succes</p>
+    <button class="button" onclick="window.location.href='/math-quiz/app'">OK</button>
+
+</div>
