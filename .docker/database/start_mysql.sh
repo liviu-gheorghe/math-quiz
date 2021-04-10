@@ -1,0 +1,1 @@
+docker run  -d -p "3306:3306" -v "$(pwd)"/data:/var/lib/mysql  --name mysql_container_01 -e MYSQL_ROOT_PASSWORD=1234 mysql
